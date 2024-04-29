@@ -1,6 +1,11 @@
 export function createCharacterCard(cardContainer, character) {
   //const card = document.querySelector(cardContainer)
 
+  const newCardForCharacter = document.createElement("card-container");
+
+  const cardImage = character.image;
+  console.log(cardImage);
+
   cardContainer.innerHTML = `
 <ul class="card-container" data-js="card-container">
 <li class="card">
