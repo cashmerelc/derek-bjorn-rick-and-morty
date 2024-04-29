@@ -15,7 +15,7 @@ export function createCharacterCard(ul, character) {
   console.log(cardInfoOccurrences);
 
   newCardForCharacter.innerHTML = `
-
+<ul class="card-container" data-js="card-container">
 <li class="card">
   <div class="card__image-container">
     <img
@@ -37,6 +37,7 @@ export function createCharacterCard(ul, character) {
     </dl>
   </div>
 </li>
+</ul>
 `;
   ul.append(newCardForCharacter);
 }
