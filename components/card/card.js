@@ -1,14 +1,7 @@
-export function createCharacterCard() {
+export function createCharacterCard(cardContainer, character) {
+  //const card = document.querySelector(cardContainer)
 
-const cardImage = 
-const cardTitle = 
-const cardInfo = 
-const cardInfoTitle =
-const cardInfoDescription =
-const cardInfoOccurence = 
-
-
-card.innerHTML = `
+  cardContainer.innerHTML = `
 <ul class="card-container" data-js="card-container">
 <li class="card">
   <div class="card__image-container">
@@ -31,11 +24,7 @@ card.innerHTML = `
     </dl>
   </div>
 </li>
-</ul>`
+</ul>`;
 
-body.appendChild(card);
-
-
-
-
+  body.appendChild(card);
 }
