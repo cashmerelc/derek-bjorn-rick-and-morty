@@ -1,35 +1,42 @@
-export function createCharacterCard(cardContainer, character) {
+export function createCharacterCard(ul, character) {
   //const card = document.querySelector(cardContainer)
 
-  const newCardForCharacter = document.createElement("card-container");
+  const newCardForCharacter = document.createElement("card");
 
   const cardImage = character.image;
   console.log(cardImage);
+  const cardTitle = character.name;
+  console.log(cardTitle);
+  const cardInfoStatus = character.status;
+  console.log(cardInfoStatus);
+  const cardInfoType = character.type;
+  console.log(cardInfoType);
+  const cardInfoOccurrences = character.episode.length;
+  console.log(cardInfoOccurrences);
 
-  cardContainer.innerHTML = `
-<ul class="card-container" data-js="card-container">
+  newCardForCharacter.innerHTML = `
+
 <li class="card">
   <div class="card__image-container">
     <img
       class="card__image"
-      src=""
-      alt="Rick Sanchez"
+      src=${cardImage}
+      alt=${cardTitle}
     />
     <div class="card__image-gradient"></div>
   </div>
   <div class="card__content">
-    <h2 class="card__title">Rick Sanchez</h2>
+    <h2 class="card__title">${cardTitle}</h2>
     <dl class="card__info">
       <dt class="card__info-title">Status</dt>
-      <dd class="card__info-description">Alive</dd>
+      <dd class="card__info-description">${cardInfoStatus}</dd>
       <dt class="card__info-title">Type</dt>
-      <dd class="card__info-description"></dd>
+      <dd class="card__info-description">${cardInfoType}</dd>
       <dt class="card__info-title">Occurrences</dt>
-      <dd class="card__info-description">51</dd>
+      <dd class="card__info-description">${cardInfoOccurrences}</dd>
     </dl>
   </div>
 </li>
-</ul>`;
-
-  body.appendChild(card);
+`;
+  ul.append(newCardForCharacter);
 }
