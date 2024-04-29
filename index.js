@@ -22,7 +22,7 @@ async function fetchCharacters() {
     const data = await response.json();
     const characters = data.results;
     characters.forEach((character) => {
-      createCharacterCard(character);
+      createCharacterCard(cardContainer, character);
       console.log(character);
     });
   } catch (err) {
