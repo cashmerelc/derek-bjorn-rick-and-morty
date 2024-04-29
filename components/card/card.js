@@ -33,5 +33,9 @@ card.innerHTML = `
 </li>
 </ul>`
 
+body.appendChild(card);
+
+
+
 
 }
