@@ -23,8 +23,8 @@ async function fetchCharacters() {
     const characters = data.results;
     characters.forEach((character) => {
       createCharacterCard(character);
+      console.log(character);
     });
-    console.log(characters);
   } catch (err) {
     console.log(err);
   }
