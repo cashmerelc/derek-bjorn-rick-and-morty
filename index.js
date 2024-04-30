@@ -17,7 +17,7 @@ export const nextButton = document.querySelector('[data-js="button-next"]');
 export const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-let searchQuery = "";
+
 let url = `https://rickandmortyapi.com/api/character/`;
 prevButton.setAttribute("disabled", "");
 

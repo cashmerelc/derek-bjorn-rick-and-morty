@@ -8,6 +8,7 @@ import {
   getMaxPage,
   updateNavigation,
 } from "../nav-pagination/nav-pagination.js";
+import { searchAttribute } from "../search-bar/search-bar.js";
 
 nextButton.addEventListener("click", () => {
   // Increment the page counter
@@ -24,7 +25,7 @@ nextButton.addEventListener("click", () => {
     prevButton.disabled = false;
   }
   cardContainer.innerHTML = "";
-  const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+  const url = `https://rickandmortyapi.com/api/character/?page=${page}${searchAttribute}`;
   console.log(url);
   fetchCharacters(url);
 });
@@ -43,6 +44,6 @@ prevButton.addEventListener("click", () => {
     nextButton.disabled = false;
   }
   cardContainer.innerHTML = "";
-  const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+  const url = `https://rickandmortyapi.com/api/character/?page=${page}${searchAttribute}`;
   fetchCharacters(url);
 });
