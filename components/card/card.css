@@ -1,5 +1,9 @@
 .card-container {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 .card {
   width: 300px;
