@@ -1,7 +1,5 @@
-import {
-  createCharacterCard,
-  fetchCharacters,
-} from "./components/card/card.js";
+import { fetchCharacters } from "./components/card/card.js";
+// import { disablePrevButton } from "./components/nav-button/nav-button.js";
 
 console.clear();
 export const cardContainer = document.querySelector(
@@ -10,15 +8,12 @@ export const cardContainer = document.querySelector(
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
-export const searchBar = document.querySelector('[data-js="search-bar"]');
 export const navigation = document.querySelector('[data-js="navigation"]');
 export const prevButton = document.querySelector('[data-js="button-prev"]');
 export const nextButton = document.querySelector('[data-js="button-next"]');
 export const pagination = document.querySelector('[data-js="pagination"]');
 
-// States
-
 let url = `https://rickandmortyapi.com/api/character/`;
-prevButton.setAttribute("disabled", "");
+// disablePrevButton();
 
 fetchCharacters(url);

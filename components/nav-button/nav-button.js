@@ -1,5 +1,6 @@
-import { fetchCharacters } from "../card/card.js";
 import { cardContainer, prevButton, nextButton } from "../../index.js";
+import { fetchCharacters } from "../card/card.js";
+import { searchAttribute } from "../search-bar/search-bar.js";
 import {
   incrementPage,
   decrementPage,
@@ -8,7 +9,14 @@ import {
   getMaxPage,
   updateNavigation,
 } from "../nav-pagination/nav-pagination.js";
-import { searchAttribute } from "../search-bar/search-bar.js";
+
+// export function disablePrevButton() {
+//   prevButton.setAttribute("disabled", "");
+// }
+
+// export function disableNextButton() {
+//   nextButton.setAttribute("disabled", "");
+// }
 
 nextButton.addEventListener("click", () => {
   // Increment the page counter
