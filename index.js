@@ -1,33 +1,45 @@
-import { createCharacterCard } from "./components/card/card.js";
+import {
+  createCharacterCard,
+  fetchCharacters,
+} from "./components/card/card.js";
+import {
+  nextButtonClick,
+  prevButtonClick,
+} from "./components/nav-pagination/nav-pagination.js";
 
-const cardContainer = document.querySelector('[data-js="card-container"]');
+console.clear();
+export const cardContainer = document.querySelector(
+  '[data-js="card-container"]'
+);
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
 const searchBar = document.querySelector('[data-js="search-bar"]');
-const navigation = document.querySelector('[data-js="navigation"]');
-const prevButton = document.querySelector('[data-js="button-prev"]');
-const nextButton = document.querySelector('[data-js="button-next"]');
-const pagination = document.querySelector('[data-js="pagination"]');
+export const navigation = document.querySelector('[data-js="navigation"]');
+export const prevButton = document.querySelector('[data-js="button-prev"]');
+export const nextButton = document.querySelector('[data-js="button-next"]');
+export const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-const maxPage = 1;
-const page = 1;
-const searchQuery = "";
+// let maxPage = 1;
+let page = 1;
+let searchQuery = "";
+let url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+prevButton.setAttribute("disabled", "");
 
-async function fetchCharacters() {
-  let url = "https://rickandmortyapi.com/api/character/";
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    const characters = data.results;
-    characters.forEach((character) => {
-      createCharacterCard(cardContainer, character);
-      console.log(character);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-}
+let maxPage = await fetchCharacters(url);
+pagination.textContent = `${page} / ${maxPage}`;
 
-fetchCharacters();
+nextButton.addEventListener("click", () => {
+  // Increment the page counter
+
+  page++;
+  // console.log(page);
+  nextButtonClick(url, page, maxPage, cardContainer);
+});
+
+prevButton.addEventListener("click", () => {
+  // Decrement the page counter
+  page--;
+  prevButtonClick(url, page, maxPage, cardContainer);
+});
