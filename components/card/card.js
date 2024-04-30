@@ -1,4 +1,4 @@
-import { cardContainer, pagination } from "../../index.js";
+import { cardContainer, nextButton } from "../../index.js";
 import {
   incrementPage,
   getPage,
@@ -57,6 +57,9 @@ export async function fetchCharacters(url) {
     const data = await response.json();
     const maxPage = data.info.pages;
     setMaxPage(maxPage);
+    if (maxPage === 1) {
+      nextButton.setAttribute("disabled", "");
+    }
     const characters = data.results;
     characters.forEach((character) => {
       createCharacterCard(cardContainer, character);
