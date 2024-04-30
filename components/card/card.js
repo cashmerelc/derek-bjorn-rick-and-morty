@@ -1,18 +1,20 @@
+import { cardContainer } from "../../index.js";
+
 export function createCharacterCard(ul, character) {
   //const card = document.querySelector(cardContainer)
 
   const newCardForCharacter = document.createElement("card");
 
   const cardImage = character.image;
-  console.log(cardImage);
+  // console.log(cardImage);
   const cardTitle = character.name;
-  console.log(cardTitle);
+  // console.log(cardTitle);
   const cardInfoStatus = character.status;
-  console.log(cardInfoStatus);
+  // console.log(cardInfoStatus);
   const cardInfoType = character.type;
-  console.log(cardInfoType);
+  // console.log(cardInfoType);
   const cardInfoOccurrences = character.episode.length;
-  console.log(cardInfoOccurrences);
+  // console.log(cardInfoOccurrences);
 
   newCardForCharacter.innerHTML = `
 <ul class="card-container" data-js="card-container">
@@ -40,4 +42,21 @@ export function createCharacterCard(ul, character) {
 </ul>
 `;
   ul.append(newCardForCharacter);
+}
+
+export async function fetchCharacters(url) {
+  // console.log(url);
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const maxPage = data.info.pages;
+    // console.log(data);
+    const characters = data.results;
+    characters.forEach((character) => {
+      createCharacterCard(cardContainer, character);
+    });
+    return maxPage;
+  } catch (err) {
+    console.log(err);
+  }
 }

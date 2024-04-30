@@ -1,7 +1,16 @@
-import { createCharacterCard } from "./components/card/card.js";
+import {
+  createCharacterCard,
+  fetchCharacters,
+} from "./components/card/card.js";
+import {
+  nextButtonClick,
+  prevButtonClick,
+} from "./components/nav-pagination/nav-pagination.js";
 
 console.clear();
-const cardContainer = document.querySelector('[data-js="card-container"]');
+export const cardContainer = document.querySelector(
+  '[data-js="card-container"]'
+);
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
@@ -12,26 +21,25 @@ export const nextButton = document.querySelector('[data-js="button-next"]');
 export const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-export let maxPage = 1;
-export let page = 1;
+// let maxPage = 1;
+let page = 1;
 let searchQuery = "";
-export let url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+let url = `https://rickandmortyapi.com/api/character/?page=${page}`;
 prevButton.setAttribute("disabled", "");
 
-export async function fetchCharacters() {
-  console.log(url);
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    maxPage = data.info.pages;
-    console.log(data);
-    const characters = data.results;
-    characters.forEach((character) => {
-      createCharacterCard(cardContainer, character);
-    });
-  } catch (err) {
-    console.log(err);
-  }
-}
+let maxPage = await fetchCharacters(url);
+pagination.textContent = `${page} / ${maxPage}`;
 
-fetchCharacters();
+nextButton.addEventListener("click", () => {
+  // Increment the page counter
+
+  page++;
+  // console.log(page);
+  nextButtonClick(url, page, maxPage, cardContainer);
+});
+
+prevButton.addEventListener("click", () => {
+  // Decrement the page counter
+  page--;
+  prevButtonClick(url, page, maxPage, cardContainer);
+});

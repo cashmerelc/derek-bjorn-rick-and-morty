@@ -1,20 +1,8 @@
-import { createCharacterCard } from "../card/card.js";
-import { fetchCharacters } from "../../index.js";
-import {
-  navigation,
-  prevButton,
-  nextButton,
-  pagination,
-  page,
-  maxPage,
-  url,
-} from "../../index.js";
+import { createCharacterCard, fetchCharacters } from "../card/card.js";
+import { navigation, prevButton, nextButton, pagination } from "../../index.js";
 
-console.log(nextButton);
-nextButton.addEventListener("click", () => {
-  // Increment the page counter
-
-  page++;
+export function nextButtonClick(url, page, maxPage, cardContainer) {
+  console.log(url);
   // Check to see if the new page count is the max page number. If so, disable the next button
   if (page === maxPage) {
     nextButton.setAttribute("disabled", "");
@@ -24,13 +12,13 @@ nextButton.addEventListener("click", () => {
     prevButton.disabled = false;
   }
   cardContainer.innerHTML = "";
+  pagination.textContent = `${page} / ${maxPage}`;
   url = `https://rickandmortyapi.com/api/character/?page=${page}`;
-  fetchCharacters();
-});
+  console.log(url);
+  fetchCharacters(url);
+}
 
-prevButton.addEventListener("click", () => {
-  // Decrement the page counter
-  page--;
+export function prevButtonClick(url, page, maxPage, cardContainer) {
   // Disable the prevButton when we reach the first page (after we have already left the first page)
   if (page === 1) {
     prevButton.setAttribute("disabled", "");
@@ -40,6 +28,7 @@ prevButton.addEventListener("click", () => {
     nextButton.disabled = false;
   }
   cardContainer.innerHTML = "";
+  pagination.textContent = `${page} / ${maxPage}`;
   url = `https://rickandmortyapi.com/api/character/?page=${page}`;
-  fetchCharacters();
-});
+  fetchCharacters(url);
+}
