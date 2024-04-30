@@ -1,4 +1,11 @@
-import { cardContainer } from "../../index.js";
+import { cardContainer, pagination } from "../../index.js";
+import {
+  incrementPage,
+  getPage,
+  setMaxPage,
+  getMaxPage,
+  updateNavigation,
+} from "../nav-pagination/nav-pagination.js";
 
 export function createCharacterCard(ul, character) {
   //const card = document.querySelector(cardContainer)
@@ -45,17 +52,16 @@ export function createCharacterCard(ul, character) {
 }
 
 export async function fetchCharacters(url) {
-  // console.log(url);
   try {
     const response = await fetch(url);
     const data = await response.json();
     const maxPage = data.info.pages;
-    // console.log(data);
+    setMaxPage(maxPage);
     const characters = data.results;
     characters.forEach((character) => {
       createCharacterCard(cardContainer, character);
     });
-    return maxPage;
+    updateNavigation();
   } catch (err) {
     console.log(err);
   }
