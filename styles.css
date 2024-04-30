@@ -20,6 +20,7 @@ body {
   color: var(--color-primary);
   padding: 20px;
   background-color: #35c9dd;
+  justify-content: space-around;
 }
 
 main {

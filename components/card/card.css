@@ -3,10 +3,12 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px;
+  margin: 10px;
+  min-height: 185px;
 }
 .card {
   width: 300px;
+  min-height: 508px;
   background-color: var(--color-secondary);
 }
 
@@ -26,4 +28,7 @@
 
 li {
   list-style: none;
+}
+
+.card__title {
 }
