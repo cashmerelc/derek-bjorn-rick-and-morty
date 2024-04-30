@@ -12,7 +12,7 @@ export function nextButtonClick(url, page, maxPage, cardContainer) {
     prevButton.disabled = false;
   }
   cardContainer.innerHTML = "";
-  pagination.textContent = `${page} / ${maxPage}`;
+  // pagination.textContent = `${page} / ${maxPage}`;
   url = `https://rickandmortyapi.com/api/character/?page=${page}`;
   console.log(url);
   fetchCharacters(url);
@@ -28,7 +28,7 @@ export function prevButtonClick(url, page, maxPage, cardContainer) {
     nextButton.disabled = false;
   }
   cardContainer.innerHTML = "";
-  pagination.textContent = `${page} / ${maxPage}`;
+  // pagination.textContent = `${page} / ${maxPage}`;
   url = `https://rickandmortyapi.com/api/character/?page=${page}`;
   fetchCharacters(url);
 }

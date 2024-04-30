@@ -1,6 +1,7 @@
 import {
   createCharacterCard,
   fetchCharacters,
+  maxPage,
 } from "./components/card/card.js";
 import {
   nextButtonClick,
@@ -14,7 +15,7 @@ export const cardContainer = document.querySelector(
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
-const searchBar = document.querySelector('[data-js="search-bar"]');
+export const searchBar = document.querySelector('[data-js="search-bar"]');
 export const navigation = document.querySelector('[data-js="navigation"]');
 export const prevButton = document.querySelector('[data-js="button-prev"]');
 export const nextButton = document.querySelector('[data-js="button-next"]');
@@ -27,8 +28,8 @@ let searchQuery = "";
 let url = `https://rickandmortyapi.com/api/character/?page=${page}`;
 prevButton.setAttribute("disabled", "");
 
-let maxPage = await fetchCharacters(url);
-pagination.textContent = `${page} / ${maxPage}`;
+fetchCharacters(page, url);
+// pagination.textContent = `${page} / ${maxPage}`;
 
 nextButton.addEventListener("click", () => {
   // Increment the page counter
