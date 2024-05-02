@@ -18,7 +18,7 @@ export function createCharacterCard(ul, character) {
   const cardInfoOccurrences = character.episode.length;
 
   newCardForCharacter.innerHTML = `
-<ul class="card-container" data-js="card-container">
+<ul class="card-container_new" data-js="card-container">
 <li class="card">
   <div class="card__image-container">
     <img
