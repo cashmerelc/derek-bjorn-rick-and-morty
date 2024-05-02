@@ -1,30 +1,24 @@
 import { cardContainer, nextButton, prevButton } from "../../index.js";
 import {
-  incrementPage,
-  getPage,
   setMaxPage,
-  getMaxPage,
   updateNavigation,
 } from "../nav-pagination/nav-pagination.js";
 
 export function createCharacterCard(ul, character) {
-  //const card = document.querySelector(cardContainer)
-
   const newCardForCharacter = document.createElement("card");
 
   const cardImage = character.image;
-  // console.log(cardImage);
+
   const cardTitle = character.name;
-  // console.log(cardTitle);
+
   const cardInfoStatus = character.status;
-  // console.log(cardInfoStatus);
+
   const cardInfoType = character.type;
-  // console.log(cardInfoType);
+
   const cardInfoOccurrences = character.episode.length;
-  // console.log(cardInfoOccurrences);
 
   newCardForCharacter.innerHTML = `
-<ul class="card-container" data-js="card-container">
+<ul class="card-container_new" data-js="card-container">
 <li class="card">
   <div class="card__image-container">
     <img

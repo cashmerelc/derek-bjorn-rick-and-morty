@@ -1,8 +1,14 @@
 .card-container {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
 }
 .card {
   width: 300px;
+  min-height: 508px;
   background-color: var(--color-secondary);
 }
 
@@ -22,4 +28,21 @@
 
 li {
   list-style: none;
+}
+
+.card-container_new {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  border: 5px solid #ebbd34;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.card__title {
+  background-color: #ebbd34;
+  border-radius: 5px;
+  padding: 5px;
 }
