@@ -46,4 +46,12 @@ li {
   background-color: #ebbd34;
   border-radius: 5px;
   padding: 5px;
+  text-align: center;
+}
+
+.card__image {
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
 }
