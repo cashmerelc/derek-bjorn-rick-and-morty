@@ -2,6 +2,9 @@
   border: none;
   background-color: #ebbd34;
   transition-duration: 0.4s;
+  border-radius: 12px;
+  font-size: 24px;
+  height: 40px;
 }
 
 .button:hover {
