@@ -1,4 +1,4 @@
-import { cardContainer, nextButton } from "../../index.js";
+import { cardContainer, nextButton, prevButton } from "../../index.js";
 import {
   incrementPage,
   getPage,
@@ -55,8 +55,12 @@ export async function fetchCharacters(url) {
   try {
     const response = await fetch(url);
     const data = await response.json();
+    let currentPage = getPage();
     const maxPage = data.info.pages;
     setMaxPage(maxPage);
+    if (currentPage === 1) {
+      prevButton.setAttribute("disabled", "");
+    }
     if (maxPage === 1) {
       nextButton.setAttribute("disabled", "");
     }
