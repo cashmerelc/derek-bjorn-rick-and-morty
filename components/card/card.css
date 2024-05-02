@@ -10,6 +10,7 @@
   width: 300px;
   min-height: 508px;
   background-color: var(--color-secondary);
+  background-color: #02afc5;
 }
 
 .card__info {
