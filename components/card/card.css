@@ -51,4 +51,7 @@ li {
 
 .card__image {
   border-radius: 50%;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
 }
