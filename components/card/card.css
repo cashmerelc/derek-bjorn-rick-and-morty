@@ -48,3 +48,7 @@ li {
   padding: 5px;
   text-align: center;
 }
+
+.card__image {
+  border-radius: 50%;
+}
