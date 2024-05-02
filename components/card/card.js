@@ -1,6 +1,7 @@
 import { cardContainer, nextButton, prevButton } from "../../index.js";
 import {
   setMaxPage,
+  getPage,
   updateNavigation,
 } from "../nav-pagination/nav-pagination.js";
 
